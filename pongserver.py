@@ -22,7 +22,7 @@ class PongHandler(SocketServer.BaseRequestHandler):
             sleep(1)
 
 
-class PongServer(SocketServer.TCPServer):
+class PongServer(SocketServer.ThreadingMixIn, SocketServer.TCPServer):
     daemon_threads = True
     allow_reuse_address = True
     running = False
